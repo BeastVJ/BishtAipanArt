@@ -11,7 +11,7 @@ const Contact = () => {
 
     const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
 
@@ -25,22 +25,19 @@ const Contact = () => {
         await sendTelegramNotification(contactMsg);
 
         // Send email via EmailJS
-        const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_b5a6mz8';
-        const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_qbuxatj';
-        const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'FPKKrHjZRLyPXtUSo';
-        emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams, emailjsPublicKey)
-            .then(() => {
-                setIsSubmitting(false);
-                setIsSubmitted(true);
-                setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-                setTimeout(() => setIsSubmitted(false), 5000);
-            })
-            .catch(() => {
-                setIsSubmitting(false);
-                setIsSubmitted(true);
-                setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-                setTimeout(() => setIsSubmitted(false), 5000);
-            });
+        try {
+            const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_b5a6mz8';
+            const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_qbuxatj';
+            const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'FPKKrHjZRLyPXtUSo';
+            await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams, emailjsPublicKey);
+        } catch {
+            // Email send failed silently — form still shows success
+        }
+
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setTimeout(() => setIsSubmitted(false), 5000);
     };
 
     return (
