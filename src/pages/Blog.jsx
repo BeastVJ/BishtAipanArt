@@ -5,9 +5,9 @@ import SEO from '../components/SEO';
 
 const Blog = () => {
     const posts = [
-        { slug: 'aipan-art-uttarakhand', title: 'Aipan: The Sacred Art of Kumaon', excerpt: 'Discover the ancient tradition of Aipan art from the hills of Uttarakhand, its spiritual significance, and how it has been preserved for generations.', author: 'Vijay Bisht', date: 'March 15, 2026', image: 'https://images.unsplash.com/photo-1605792657661-596af7809f3a?w=600', category: 'Heritage' },
-        { slug: 'geru-red-significance', title: 'The Significance of Geru Red in Kumaoni Culture', excerpt: 'Why the color red holds such deep spiritual meaning in the hills of Kumaon and how it became the foundation of Aipan art.', author: 'Vijay Bisht', date: 'March 10, 2026', image: 'https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=600', category: 'Culture' },
-        { slug: 'women-artisans-empowerment', title: 'Empowering Women Through Aipan Art', excerpt: 'How the ancient tradition of Aipan is providing sustainable livelihoods to women artisans across Uttarakhand.', author: 'Vijay Bisht', date: 'March 5, 2026', image: 'https://images.unsplash.com/photo-1594708767771-a7502209ff51?w=600', category: 'Community' },
+        { slug: 'aipan-art-uttarakhand', title: 'Aipan: The Sacred Art of Kumaon', excerpt: 'Discover the ancient tradition of Aipan art from the hills of Uttarakhand, its spiritual significance, and how it has been preserved for generations.', author: 'Vijay Bisht', date: 'March 15, 2026', image: '/photos/karwa-chauth-set.jpg', category: 'Heritage' },
+        { slug: 'geru-red-significance', title: 'The Significance of Geru Red in Kumaoni Culture', excerpt: 'Why the color red holds such deep spiritual meaning in the hills of Kumaon and how it became the foundation of Aipan art.', author: 'Vijay Bisht', date: 'March 10, 2026', image: '/photos/wall-aipan-art.jpg', category: 'Culture' },
+        { slug: 'women-artisans-empowerment', title: 'Empowering Women Through Aipan Art', excerpt: 'How the ancient tradition of Aipan is providing sustainable livelihoods to women artisans across Uttarakhand.', author: 'Vijay Bisht', date: 'March 5, 2026', image: '/photos/mata-frame.jpg', category: 'Community' },
     ];
 
     return (

@@ -16,11 +16,11 @@ const Home = () => {
     const newProducts = products.filter(p => p.newArrival).slice(0, 4);
 
     const categories = [
-        { name: 'Wall Art', desc: 'Canvas & framed artwork', path: '/shop/wall-art', image: 'https://images.unsplash.com/photo-1513519245088-0e12902e35ca?w=400' },
-        { name: 'Pooja Collection', desc: 'Sacred ritual items', path: '/shop/pooja', image: 'https://images.unsplash.com/photo-1605792657661-596af7809f3a?w=400' },
-        { name: 'Home Decor', desc: 'Decorative Aipan pieces', path: '/shop/home-decor', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400' },
-        { name: 'Accessories', desc: 'Bags, bookmarks & more', path: '/shop/accessories', image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=400' },
-        { name: 'Jewellery', desc: 'Handcrafted adornments', path: '/shop/jewellery', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400' },
+        { name: 'Wall Art', desc: 'Canvas & framed artwork', path: '/shop/wall-art', image: '/photos/wall-art.jpg' },
+        { name: 'Pooja Collection', desc: 'Sacred ritual items', path: '/shop/pooja', image: '/photos/pooja-thali-2.jpg' },
+        { name: 'Home Decor', desc: 'Decorative Aipan pieces', path: '/shop/home-decor', image: '/photos/pooja-thali-3.jpg' },
+        { name: 'Accessories', desc: 'Bags, bookmarks & more', path: '/shop/accessories', image: '/photos/wall-art-2.jpg' },
+        { name: 'Jewellery', desc: 'Handcrafted adornments', path: '/shop/jewellery', image: '/photos/pooja-thali-4.jpg' },
         { name: 'Custom Aipan', desc: 'Made just for you', path: '/custom-aipan', image: '' },
     ];
 
@@ -91,7 +91,7 @@ const Home = () => {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
                             <div className="aspect-[4/5] bg-warm-sand rounded-sm overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1605792657661-596af7809f3a?w=600" alt="Aipan Art" className="w-full h-full object-cover" />
+                                <img src="/photos/pooja-thali-5.jpg" alt="Aipan Art" className="w-full h-full object-cover" />
                             </div>
                             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-geru-red/10 rounded-full flex items-center justify-center">
                                 <AipanMandala size={120} animated />
@@ -252,7 +252,7 @@ const Home = () => {
             {/* ===== UTTARAKHAND STORY ===== */}
             <section className="relative py-32 overflow-hidden">
                 <div className="absolute inset-0">
-                    <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1920" alt="Uttarakhand Mountains" className="w-full h-full object-cover" />
+                    <img src="/photos/mata-frame.jpg" alt="Uttarakhand Mountains" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/90" />
                 </div>
                 <div className="relative z-10 container-custom text-center">
