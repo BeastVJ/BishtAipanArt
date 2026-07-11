@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== BASE STYLES ===== */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FBFBF8;
+        color: #292522;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    ::selection {
+        background-color: #A83B2C;
+        color: #FBFBF8;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #F5E6D3;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #A83B2C;
+        border-radius: 4px;
+    }
+}
+
+/* ===== AIPAN PATTERNS ===== */
+.aipan-dot-pattern {
+    background-image: radial-gradient(circle, #A83B2C 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.aipan-border-top {
+    border-top: 3px solid #A83B2C;
+    position: relative;
+}
+
+.aipan-border-top::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #A83B2C;
+    border-radius: 50%;
+}
+
+.aipan-border-bottom {
+    border-bottom: 3px solid #A83B2C;
+    position: relative;
+}
+
+.aipan-border-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #A83B2C;
+    border-radius: 50%;
+}
+
+/* Aipan Corner Pattern */
+.aipan-corner {
+    position: relative;
+}
+
+.aipan-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-top: 2px solid #A83B2C;
+    border-left: 2px solid #A83B2C;
+}
+
+.aipan-corner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid #A83B2C;
+    border-right: 2px solid #A83B2C;
+}
+
+/* Traditional Aipan Geometric Border */
+.aipan-geometric-border {
+    background-image:
+        linear-gradient(90deg, #A83B2C 2px, transparent 2px),
+        linear-gradient(0deg, #A83B2C 2px, transparent 2px);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 0;
+}
+
+/* Mandala Loading Animation */
+.aipan-loader-ring {
+    border: 2px solid transparent;
+    border-top-color: #A83B2C;
+    border-right-color: #C59A52;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.aipan-loader-ring:nth-child(1) { width: 40px; height: 40px; }
+.aipan-loader-ring:nth-child(2) { width: 60px; height: 60px; animation-duration: 1.5s; }
+.aipan-loader-ring:nth-child(3) { width: 80px; height: 80px; animation-duration: 2s; }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes lineDraw {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Traditional Dot Border */
+.aipan-dot-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.aipan-dot-divider::before,
+.aipan-dot-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #A83B2C, transparent);
+}
+
+.aipan-dot {
+    width: 6px;
+    height: 6px;
+    background: #A83B2C;
+    border-radius: 50%;
+}
+
+/* ===== COMPONENT STYLES ===== */
+@layer components {
+    .container-custom {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-padding {
+        @apply py-16 md:py-24;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-6 py-3 bg-geru-red text-rice-white font-medium text-sm
+               uppercase tracking-wider transition-all duration-300 hover:bg-deep-geru hover:shadow-lg
+               active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-6 py-3 border-2 border-geru-red text-geru-red
+               font-medium text-sm uppercase tracking-wider transition-all duration-300
+               hover:bg-geru-red hover:text-rice-white active:scale-95;
+    }
+
+    .btn-ghost {
+        @apply inline-flex items-center justify-center px-6 py-3 text-charcoal font-medium text-sm
+               transition-all duration-300 hover:text-geru-red active:scale-95;
+    }
+
+    .input-field {
+        @apply w-full px-4 py-3 border border-gray-300 text-charcoal bg-rice-white
+               transition-all duration-300 focus:border-geru-red focus:ring-1 focus:ring-geru-red
+               focus:outline-none placeholder:text-gray-400 text-sm;
+    }
+
+    .card {
+        @apply bg-rice-white border border-gray-100 transition-all duration-300;
+    }
+
+    .card-hover {
+        @apply hover:shadow-xl hover:-translate-y-1;
+    }
+
+    .shadow-soft {
+        box-shadow: 0 2px 20px rgba(41, 37, 34, 0.06);
+    }
+
+    .shadow-warm {
+        box-shadow: 0 4px 30px rgba(168, 59, 44, 0.08);
+    }
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-geru-red to-deep-ochre;
+    }
+
+    /* Skeleton Loader */
+    .skeleton {
+        @apply bg-gray-200 animate-pulse rounded;
+    }
+
+    /* Aipan Section Divider */
+    .aipan-section-divider {
+        @apply relative py-8 flex items-center justify-center;
+    }
+
+    .aipan-section-divider::before {
+        content: '';
+        @apply absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-geru-red/30 to-transparent;
+    }
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll-triggered animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Aipan Hover Pattern */
+.aipan-hover-pattern {
+    position: relative;
+    overflow: hidden;
+}
+
+.aipan-hover-pattern::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(168, 59, 44, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(168, 59, 44, 0.03) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.aipan-hover-pattern:hover::after {
+    opacity: 1;
+}
+
+/* Product Frame */
+.aipan-product-frame {
+    border: 1px solid rgba(168, 59, 44, 0.1);
+    position: relative;
+}
+
+.aipan-product-frame::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: #A83B2C;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.aipan-product-frame:hover::before {
+    opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .section-padding {
+        @apply py-12;
+    }
+}
